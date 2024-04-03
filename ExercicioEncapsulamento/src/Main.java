@@ -24,6 +24,6 @@ public class Main {
         System.out.println("Produto: " + p1.getNome());
         System.out.printf("Lucro: R$%.2f\n", p1.calcularMargemLucro());
         System.out.printf("Porcentagem de lucro: %.2f%%\n", p1.getMargemLucroPorcentagem());
-	System.out.println("";
+	System.out.println("");
     }
 }
