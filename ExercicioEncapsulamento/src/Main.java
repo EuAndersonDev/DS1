@@ -7,23 +7,28 @@ public class Main {
 		String resposta = "SIM";
 		
 		while(! resposta.equalsIgnoreCase("NÃO")){
-			System.out.println("Coloque o nome do produto:");
+			System.out.print("Coloque o nome do produto: ");
 			p1.setNome(in.next());
 			
-			System.out.println("Coloque o preço de custo:");	
+			System.out.print("Coloque o preço de custo: ");	
 			p1.setPrecoCusto(in.nextDouble());
 			
-			System.out.println("Coloque o preço de venda:");
+			System.out.print("Coloque o preço de venda: ");
 			p1.setPrecoVenda(in.nextDouble());
 			while(p1.getPrecoVenda() < p1.getPrecoCusto()) {
-				teste1.setPrecoVenda(in.nextDouble());
+				p1.setPrecoVenda(in.nextDouble());
 			}
+			
+			
+			System.out.println("");	
+		        System.out.println("Produto: " + p1.getNome());
+		        System.out.printf("Lucro: R$%.2f\n", p1.calcularMargemLucro());
+		        System.out.printf("Porcentagem de lucro: %.2f%%\n", p1.getMargemLucroPorcentagem());
+			System.out.println("");
+			System.out.print("Deseja cadastrar outro produto? ");
+			resposta = in.next();
+			System.out.println();
 		}
-		
-	System.out.println("");	
-        System.out.println("Produto: " + p1.getNome());
-        System.out.printf("Lucro: R$%.2f\n", p1.calcularMargemLucro());
-        System.out.printf("Porcentagem de lucro: %.2f%%\n", p1.getMargemLucroPorcentagem());
-	System.out.println("");
+
     }
 }
