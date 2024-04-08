@@ -8,8 +8,17 @@ public class Filme {
     }
 
     public void exibirDuracaoEmHoras() {
-        double duracaoEmHoras = duracaoEmMinutos / 60.0;
-        System.out.println("O filme " + titulo + " possui " + duracaoEmHoras + " horas de duração.");
+        int horas = this.duracaoEmMinutos / 60;
+		int minutos = this.duracaoEmMinutos % 60;
+		
+		if (this.duracaoEmMinutos < 60) {
+			System.out.println("O filme"+titulo+" tem duração de " + minutos + " minutos.");
+		} else if (minutos == 0) {
+			System.out.println("O filme"+titulo+" tem duração de " + horas + " hora(s).");
+		} else {
+			System.out.println("O filme"+titulo+" tem duração de " + horas + " hora(s) e " + minutos + " minuto(s).");
+		}
+       
     }
 
     public String getTitulo() {
