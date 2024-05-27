@@ -1,43 +1,40 @@
-import java.util.*;
+import java.util.Scanner;
+
 public class Main {
+
 	public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
 
-        Cliente cliente1 = new Cliente();
-        ClientePremium cliente2 = new ClientePremium();
+		Scanner ler = new Scanner(System.in);
 
-        // Definindo os atributos de cliente1
-        System.out.print("Insira o nome do Cliente Normal: ");
-        cliente1.setNome(in.nextLine());
-        System.out.print("Insira a idade do Cliente Normal: ");
-        cliente1.setIdade(in.nextInt());
-        in.nextLine();
-        System.out.print("Insira o endere�o do Cliente Normal: ");
-        cliente1.setEndereco(in.nextLine());
-        System.out.print("Insira o valor do pedido do Cliente Normal: ");
-        cliente1.setValor_Pedido(in.nextDouble());
-        in.nextLine();
-        
-        System.out.println();
-        
-        // Definindo os atributos de cliente2
-        System.out.print("Insira o nome do Cliente Premium:");
-        cliente2.setNome(in.nextLine());
-        System.out.print("Insira a idade do Cliente Premium:");
-        cliente2.setIdade(in.nextInt());
-        in.nextLine();
-        System.out.print("Insira o endere�o do Cliente Premium:");
-        cliente2.setEndereco(in.nextLine());
-        System.out.print("Insira o valor do pedido do Cliente Premium:");
-        cliente2.setValor_Pedido(in.nextDouble());
+		int res = 1, resCliente, cc = 0;
 
-        // Apresentção
-        System.out.println("Cliente: " + cliente1.getNome() + ", Idade: " + cliente1.getIdade() + ", Endereço: " + cliente1.getEndereco());
-        System.out.println("Cliente normal tem desconto de 10% porcento logo o preço final fica: " + cliente1.calculaDesconto(cliente1.getValor_Pedido()));
-        System.out.println("-----------------------------------------------------------");
-        System.out.println("Cliente Premium: " + cliente2.getNome() + ", Idade: " + cliente2.getIdade() + ", Endereço: " + cliente2.getEndereco());
-        System.out.println("Cliente premium tem desconto de 15% porcento logo o preço final fica: " + cliente2.calculaDesconto(cliente2.getValor_Pedido()));
-        
-        in.close();
+		while (res == 1) {
+			System.out.println("Escolha seu plano: 0 - Cliente Comum | 1 - Cliente Premium");
+			resCliente = ler.nextInt();
+			System.out.println("Digite seu nome:");
+			String nomeC = ler.next();
+			System.out.println("Digite sua idade:");
+			int idadeC = ler.nextInt();
+			System.out.println("Digite seu endereço:");
+			String enderecoC = ler.nextLine();
+			ler.nextLine();
+			System.out.println("Digite o valor do pedido:");
+			double valor_pedidoC = ler.nextDouble();
+			
+			if(resCliente == 0) {
+				Cliente c1 = new Cliente(nomeC, idadeC, enderecoC, valor_pedidoC);
+				System.out.printf("Valor promocional: R$%.2f\n", c1.calculaDesconto());
+			} else {
+				ClientePremium cp1 = new ClientePremium(nomeC, idadeC, enderecoC, valor_pedidoC);
+				System.out.printf("Valor promocional: R$%.2f\n", cp1.calculaDesconto());
+			}
+			
+			System.out.println("Deseja continuar? 0 - Não | 1 - Sim");
+			res = ler.nextInt();
+		}
+		
+		System.out.println("... fim do programa");
+
+		ler.close();
 	}
 }

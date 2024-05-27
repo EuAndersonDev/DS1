@@ -1,13 +1,34 @@
 
 public class Cliente {
+	
 	private String nome;
 	private int idade;
-	private String endereco; 
-	private double valor_Pedido;
-	private double valor_Promocional;
+	private String endereco;
+	private double valor_pedido;
+	private double valor_promocional;
 	
+	// Construtores
+	public Cliente(String nome, int idade, String endereco, double valor_pedido) {
+		this.nome = nome;
+		this.idade = idade;
+		this.endereco = endereco;
+		this.valor_pedido = valor_pedido;
+	}
+	
+	public Cliente() {
+		
+	}
+
+	// Métodos Cliente
+	public double calculaDesconto() {
+		double novoValor = this.valor_pedido - (this.valor_pedido * 0.1); // 10%
+		this.setValor_promocional(novoValor);
+		return novoValor;
+	}
+	
+	// Getters e Setters
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 	
 	public void setNome(String nome) {
@@ -15,7 +36,7 @@ public class Cliente {
 	}
 	
 	public int getIdade() {
-		return idade;
+		return this.idade;
 	}
 	
 	public void setIdade(int idade) {
@@ -23,32 +44,26 @@ public class Cliente {
 	}
 	
 	public String getEndereco() {
-		return endereco;
+		return this.endereco;
 	}
 	
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
 	
-	public double getValor_Pedido() {
-		return valor_Pedido;
+	public double getValor_pedido() {
+		return this.valor_pedido;
 	}
 	
-	public void setValor_Pedido(double valor_Pedido) {
-		this.valor_Pedido = valor_Pedido;
+	public void setValor_pedido(double valor_pedido) {
+		this.valor_pedido = valor_pedido;
 	}
 	
-	public double getValor_Promocional() {
-		return valor_Promocional;
+	public double getValor_promocional() {
+		return this.valor_promocional;
 	}
 	
-	public void setValor_Promocional(double valor_Promocional) {
-		this.valor_Promocional = valor_Promocional;
-	}
-	
-    public double calculaDesconto(double preco) {
-		double valorDesconto = preco - (preco*0.1);
-		this.setValor_Promocional(valorDesconto);
-		return valorDesconto;
+	protected void setValor_promocional(double valor_promocional) {
+		this.valor_promocional = valor_promocional;
 	}
 }
