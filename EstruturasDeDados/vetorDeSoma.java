@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class vetorDeSoma {
+public class VetorDeSoma {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         final int TAM = 5;
