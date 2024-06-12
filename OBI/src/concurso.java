@@ -1,28 +1,21 @@
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class concurso{
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         
-
-        int N = scanner.nextInt();
-        int K = scanner.nextInt();
+        int n = in.nextInt();
+        int k = in.nextInt();
+        int[] notas = new int[n];
         
-
-        Integer[] notas = new Integer[N];
-        for (int i = 0; i < N; i++) {
-            notas[i] = scanner.nextInt();
+        for (int i = 0; i < n; i++) {
+            notas[i] = in.nextInt();
         }
+
+        Arrays.sort(notas);
+
+        System.out.printf("%d\n",notas[n - k]);
         
-
-        Arrays.sort(notas, Collections.reverseOrder());
-
-        int notaDeCorte = notas[K];
-
-        System.out.println(notaDeCorte);
-        
-        scanner.close();
     }
 }
